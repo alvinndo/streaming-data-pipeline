@@ -11,6 +11,10 @@ run.
 
 What is the output?
 
+```aidl
+Hello World
+```
+
 Note, if you don't see this green arrow or running the App doesn't work. Check to make sure you have Java installed.
 
 ## Challenge #2: Implement code in each ChallengeProblems.scala to pass the tests
