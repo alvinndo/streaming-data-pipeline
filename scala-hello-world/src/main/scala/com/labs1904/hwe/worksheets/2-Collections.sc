@@ -1,3 +1,23 @@
+val myStates = Map(
+  "MO" -> "The Arch",
+  "IL" -> "The Bean",
+  "OH" -> "The Ohio State University",
+  "CA" -> "Disneyland",
+  "FL" -> "Disney World",
+  "IN" -> "Some random gas station"
+)
+
+val visitedPlaces = List("MO", "FL", "IL", "IN", "OH", "CA")
+
+visitedPlaces.map(place => myStates(place))
+
+
+
+
+
+
+
+
 val directionalStates = List(
   "West Virginia",
   "North Dakota",
