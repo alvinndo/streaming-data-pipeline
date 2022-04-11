@@ -9,14 +9,14 @@ import java.time.Duration
 import java.util.{Arrays, Properties, UUID}
 
 object SimpleConsumer {
-  val BootstrapServer : String = "CHANGEME"
-  val Topic: String = "question-1"
-  val username: String = "CHANGEME"
-  val password: String = "CHANGEME"
+  val BootstrapServer : String = "CHANGE-ME"
+  val Topic: String = "question-1-output"
+  val username: String = "CHANGE-ME"
+  val password: String = "CHANGE-ME"
   //Use this for Windows
-  val trustStore: String = "src\\main\\resources\\kafka.client.truststore.jks"
+  //val trustStore: String = "src\\main\\resources\\kafka.client.truststore.jks"
   //Use this for Mac
-  //val trustStore: String = "src/main/resources/kafka.client.truststore.jks"
+  val trustStore: String = "src/main/resources/kafka.client.truststore.jks"
 
   implicit val formats: DefaultFormats.type = DefaultFormats
 

@@ -10,14 +10,14 @@ import java.util.{Arrays, Properties, UUID}
 
 object ConnectionTest {
   // TODO: this is configured to use kafka running locally, change it to your cluster
-  val BootstrapServer : String = "CHANGEME"
+  val BootstrapServer : String = "CHANGE-ME"
   val Topic: String = "hwe-kafka-connection-test"
-  val username: String = "CHANGEME"
-  val password: String = "CHANGEME"
+  val username: String = "CHANGE-ME"
+  val password: String = "CHANGE-ME"
   //Use this for Windows
-  val trustStore: String = "src\\main\\resources\\kafka.client.truststore.jks"
+  //val trustStore: String = "src\\main\\resources\\kafka.client.truststore.jks"
   //Use this for Mac
-  //val trustStore: String = "src/main/resources/kafka.client.truststore.jks"
+  val trustStore: String = "src/main/resources/kafka.client.truststore.jks"
 
   implicit val formats: DefaultFormats.type = DefaultFormats
 

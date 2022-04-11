@@ -8,14 +8,14 @@ import java.util.Properties
 
 object SimpleProducer {
   // Set constants
-  val BootstrapServer : String = "CHANGEME"
+  val BootstrapServer : String = "CHANGE-ME"
   val Topic: String = "question-1-output"
-  val username: String = "CHANGEME"
-  val password: String = "CHANGEME"
+  val username: String = "CHANGE-ME"
+  val password: String = "CHANGE-ME"
   //Use this for Windows
-  val trustStore: String = "src\\main\\resources\\kafka.client.truststore.jks"
+  //val trustStore: String = "src\\main\\resources\\kafka.client.truststore.jks"
   //Use this for Mac
-  //val trustStore: String = "src/main/resources/kafka.client.truststore.jks"
+  val trustStore: String = "src/main/resources/kafka.client.truststore.jks"
 
   def main(args: Array[String]): Unit = {
     // Create Kafka Producer
