@@ -11,12 +11,15 @@ object HelloWorldBatchApp {
     try {
       logger.info(s"$jobName starting...")
       //TODO: What is a spark session - Why do we need this line?
+      // A Spark session is a unified entry point to the underlying Spark functionality in order to programatically create Spark RDDs, DataFrames, and/or Datasets
       val spark = SparkSession.builder()
         .appName(jobName)
         .config("spark.sql.shuffle.partitions", "3")
         //TODO- What is local[*] doing here?
+        // local[*] means to run Spark locally with as many worker threads as logical cores on your machine
         .master("local[*]")
         //TODO- What does Get or Create do?
+        // getOrCreate() gets an existing SparkSession if created. If there is no existing one, then it will create a SparkSession instead.
         .getOrCreate()
 
       import spark.implicits._
