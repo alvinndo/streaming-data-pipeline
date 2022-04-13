@@ -6,6 +6,8 @@ import org.apache.log4j.Logger
 import org.apache.spark.sql.functions._
 import org.apache.spark.sql.streaming.{OutputMode, Trigger}
 import org.apache.spark.sql.SparkSession
+import com.labs1904.hwe.WordCountBatchApp
+import com.labs1904.hwe.WordCountBatchApp.splitSentenceIntoWords // importing splitSentenceIntoWords function we created from challenge #2
 
 import java.util.Properties
 
@@ -17,9 +19,9 @@ object WordCountStreamingApp {
   val jobName = "WordCountStreamingApp"
   // TODO: define the schema for parsing data from Kafka
 
-  val bootstrapServer : String = "CHANGEME"
-  val username: String = "CHANGEME"
-  val password: String = "CHANGEME"
+  val bootstrapServer : String = "changeme"
+  val username: String = "changeme"
+  val password: String = "changeme"
   val Topic: String = "word-count"
 
   //Use this for Windows
@@ -59,12 +61,19 @@ object WordCountStreamingApp {
       sentences.printSchema
 
       // TODO: implement me
-      //val counts = ???
+      /*
+      Same implementation from WordCountBatchApp.scala
+       */
+      val splitSentence = sentences.flatMap(row => splitSentenceIntoWords(row))
 
-      val query = sentences.writeStream
-        .outputMode(OutputMode.Append())
+      val words = splitSentence.map(row => WordCount(row,1))
+      val wordCount = words.groupBy(col("word")).count().orderBy(col("count").desc).limit(10)
+
+      val query = wordCount.writeStream // Updated sentences.writeStream to wordCount.writeStream
+        .outputMode(OutputMode.Complete()) // Updating from Append() to Complete() since existing rows are bound to change and entire result table will need to be re-written
         .format("console")
         .trigger(Trigger.ProcessingTime("5 seconds"))
+        .option("truncate", false) // Disabling row truncation
         .start()
 
       query.awaitTermination()

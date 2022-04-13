@@ -70,9 +70,17 @@ Update the application to output each word and the number of times it occurs, so
 Open up `HelloWorldStreamingApp.scala`. Run it just like you did the Batch App above.
 
 How often is data printed out?
+```
+Data is printed out every 5 seconds
+```
 Where is the data coming from?
+```
+The data is coming from the random sentence generator
+```
 Why do we run locally?
-
+```
+It's easier to test and run programs instead of having to connect to several other systems.
+```
 ## Challenge 4: Implement Word Count in the WordCountStreamingApp Structured Streaming app
 
 The WordCountStreamingApp structured streaming app requires a Kafka cluster. The data on the topic is a list of
@@ -85,6 +93,10 @@ Run the app. What does the data look like?
 Refactor the app to count each word, and print the top 10 counts to the console for each batch.
 
 What are some issues that you encountered with the data?
+```
+There's a random "space" character in the data. The splitSentenceIntoWords function is split
+with the "space" delimiter but it is still showing in the data. Is it possibly a newline character?
+```
 
 # Known Issues
 
