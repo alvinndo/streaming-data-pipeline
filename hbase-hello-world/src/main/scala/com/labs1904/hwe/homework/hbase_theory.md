@@ -19,25 +19,75 @@ reword confusing descriptions in a way that makes sense to you.
 
 ## Questions
 #### What is a NoSQL database? 
-
+```
+A NoSQL database refers to any non-relational database. The data is stored in a format
+other than relational tables. For instance, NoSQL database are stored using key-value
+pairs while traditional relational database are stored in tables organized into columns.
+In addition, NoSQL databases are schema-less.
+```
 
 #### In your own words, what is Apache HBase? 
+```
+HBase is a type of NoSQL database that runs on top of HDFS, and enables real-time
+analysis of data.
 
+The data is stored in tabular format for fast reads/writes. HBase is mostly used in 
+scenarios that requires regular and consistent inserting and overwriting of data, such
+as Spark streams.
+```
 
 #### What are some strengths and limitations of HBase? 
 * [HBase By Examples](https://sparkbyexamples.com/apache-hbase-tutorial/)
+```
+Strengths:
+-Easy to scale
+-Highly fault-tolerant
+-Leverages HDFS file storage to store large datasets and perform queries quickly
+-Supports parallel processing via MapReduce and Spark
+-Queries execute in parallel across the cluster
 
+Limitations:
+-Tough to query with SQL-like operations
+-Cannot do join operations on different HBase tables
+-CPU and memory intensive
+-Sorting only done on Row keys
+-Single point of failure
+-Requires Hive on top of HBase to run SQL-like queries
+-No support of transactions
+```
 #### Explain the following concepts: 
-* Rowkey
+* Row key
+```
+A unique identifier for the table row. Since HBase is a NoSQL-like database system, it
+requires the usage of key-value pairs. So in order to query the data, it needs the row
+key.
+```
 * Column Qualifier
+```
+The column names, also known as column keys.
+```
 * Column Family
-
+```
+The logical and physical grouping of columns in a table. Column families contain column
+qualifiers.
+```
 
 #### What are the differences between Get and Put commands in HBase? 
 * [HBase commands](https://www.tutorialspoint.com/hbase/hbase_create_data.htm)
-
+```
+The Get command is used to read a single row of the HTable at a time
+The Put command is used to insert a row and update the HTable
+```
 
 #### What is the HBase Scan command for? 
 * [HBase Scan](https://www.tutorialspoint.com/hbase/hbase_scan.htm)
+```
+The Scan command is used to view the data in HTable. You can get the table data
+```
 
 #### What was the most interesting aspect of HBase when went through all the questions? 
+```
+The fact that HBase is a NoSQL-like database system that utilizes HDFS is pretty unique.
+I'm curious to know how to use it hands-on and see what kind of data to expect after 
+some executions.
+```
