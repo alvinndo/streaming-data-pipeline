@@ -23,8 +23,7 @@ Challenge #2: Write a new user to your table with:
 (Note that favorite_color is a new column qualifier in this table, and we are not specifying some other columns every 
 other record has: DOB, email address, etc.)
 
-Challenge #3: How many user IDs exist between 10000001 and 10006001? (Not all user IDs exist, so the answer is *not* 
-6000)
+Challenge #3: How many user IDs exist between 10000001 and 10006001? (Not all user IDs exist, so the answer is *not* 6000)
 
 Challenge #4: Delete the user with ID = 99 that we inserted earlier.
 
